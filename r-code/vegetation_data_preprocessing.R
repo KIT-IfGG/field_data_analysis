@@ -9,6 +9,7 @@ head(veg)
 veg$species <- lapply(strsplit(veg$species, " "), function(x) paste0(x, collapse = "_"))
 veg$species <- paste0(veg$species, "_", veg$layer)
 
+
 ### Get column names for cover data ####
 s <- colnames(veg)[grep("p", colnames(veg))]
 s <- s[grep("spe", s, invert = TRUE)]
@@ -33,6 +34,16 @@ for(i in 1:length(old_vals)) {
 }
 
 veg <- matrix(as.numeric(veg_mat), ncol = ncol(veg_mat), dimnames = list(paste0(veg$species), s))
+
+
+### Remove duplicated species ####
+dpl <- table(rownames(veg))
+names(dpl)[dpl > 1]
+veg[rownames(veg) %in% names(dpl)[dpl > 1], ]
+
+rowSums(veg[rownames(veg) %in% names(dpl)[dpl > 1], ])
+
+veg <- veg[rowSums(veg) > 0,]
 
 ### Write the data ####
 write.csv(veg, "data/vegetation.csv")
