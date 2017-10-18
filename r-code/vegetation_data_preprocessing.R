@@ -45,4 +45,4 @@ rowSums(veg[rownames(veg) %in% names(dpl)[dpl > 1], ])
 veg <- veg[rowSums(veg) > 0,]
 
 ### Write the data ####
-write.csv(veg, "data/vegetation.csv")
+write.csv(veg, "data/vegetation_2017.csv")
