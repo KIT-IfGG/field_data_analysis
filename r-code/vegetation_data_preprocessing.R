@@ -25,13 +25,12 @@ old_vals
 ### Create numeric cover values ####
 stars <- ifelse(nchar(old_vals)==2, "0.", "") ## WHAT DO * mean?! 
 nums <- substring(old_vals, first=nchar(old_vals), last = nchar(old_vals))
-new_vals <- as.numeric(paste0(stars, nums))
+new_vals <- as.numeric(paste0(stars, nums)) * 10
 
 veg_mat <- as.matrix(veg[,s])
 
-for(i in 1:length(old_vals)) {
-  veg_mat[veg_mat == old_vals[i]] <- new_vals[i]
-}
+for(i in 1:length(old_vals)) veg_mat[veg_mat == old_vals[i]] <- new_vals[i]
+
 
 veg <- matrix(as.numeric(veg_mat), ncol = ncol(veg_mat), dimnames = list(paste0(veg$species), s))
 
