@@ -1,6 +1,6 @@
 library(rgdal)
 library(RgoogleMaps)
-sites <- read.table("data/vegetation_header_raw.csv", header=T, row.names = 1, sep=";", dec=",")
+sites <- read.table("data/header_2017.csv", header=T, row.names = 1, sep=";", dec=",")
 
 ### Map (mit Internetanschluss) ####
 xy <- as.matrix (sites[,c("easting", "northing")]) ## xy-Koordinaten

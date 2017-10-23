@@ -31,7 +31,7 @@ veg_mat <- as.matrix(veg[,s])
 
 for(i in 1:length(old_vals)) veg_mat[veg_mat == old_vals[i]] <- new_vals[i]
 
-
+### Caution, stringsAsFactors = FALSE must be set, otherwise take care ot factor to numeric conversion issues
 veg <- matrix(as.numeric(veg_mat), ncol = ncol(veg_mat), dimnames = list(paste0(veg$species), s))
 
 
