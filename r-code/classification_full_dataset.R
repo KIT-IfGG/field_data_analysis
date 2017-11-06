@@ -22,6 +22,11 @@ isotab(iso)   ### Diagnostic species - decide if this makes sense!
 str(iso$flat)
 vegclass <- iso$flat
 
+### Write the results into text file
+sink("results/isotab.txt")
+isotab(iso)
+sink()
+
 #####################################################
 ### Analyse site information by class ####
 #####################################################
