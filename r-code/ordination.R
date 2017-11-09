@@ -1,5 +1,4 @@
 library(vegan)
-library(isopam)
 library(scatterplot3d)
 
 ### Some global variables
