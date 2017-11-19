@@ -81,7 +81,7 @@ legend("bottomright", legend=c("Eichelberg-1", "Eichelberg-2", "Duemmel"), col=m
 
 ### Environmental fit ####
 ### Numeric variables
-ef <- envfit(ordi~ northerness +  slope, sites, na.rm=TRUE, choices=c(1,2))
+ef <- envfit(ordi ~ northerness +  slope, sites, na.rm=TRUE, choices=c(1,2))
 ef
 
 ordiplot(ordi, choices=c(1,2), type = "n")
@@ -94,6 +94,7 @@ ef13
 ordiplot(ordi, choices=c(1,3), type = "n")
 points(ordi, choices=c(1,3), display="sites", cex=1.5, pch=mysyms[sites$vegclass], col=mycols[sites$vegclass])
 plot(ef13, add=TRUE, label=c("Northerness", "Slope"), col="black")
+legend("bottomright", legend=c("Eichelberg-1", "Eichelberg-2", "Duemmel"), col=mycols, pch=mysyms, cex=1.5, bg="white")
 
 ### Categorical variables
 ordiplot(ordi, choices=c(1,2), type = "n")
