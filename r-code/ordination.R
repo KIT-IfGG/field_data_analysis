@@ -79,8 +79,15 @@ orditorp(ordi, choices=c(1,2), display="species", cex=1.2, priority=colSums(veg_
 points(ordi, choices=c(1,2), display="sites", cex=1.5, pch=mysyms[sites$vegclass], col=mycols[sites$vegclass])
 legend("bottomright", legend=c("Eichelberg-1", "Eichelberg-2", "Duemmel"), col=mycols, pch=mysyms, cex=1.5, bg="white")
 
-### Environmental fit ####
-### Numeric variables
+### Plot single species cover data into ordination ####
+x11()
+ordiplot(ordi, choices=c(1,2), type = "n")
+orditorp(ordi, choices=c(1,2), display="species", cex=1.2, priority=colSums(veg_trans))
+points(ordi, choices=c(1,2), display="sites", cex=(veg_trans$Fagus_sylvatica+0.2)*2, pch=mysyms[sites$vegclass], col=mycols[sites$vegclass])
+legend("bottomright", legend=c("Eichelberg-1", "Eichelberg-2", "Duemmel"), col=mycols, pch=mysyms, cex=1.5, bg="white")
+
+### Environmental fits ####
+### Numeric variables, linear
 ef <- envfit(ordi ~ northerness +  slope, sites, na.rm=TRUE, choices=c(1,2))
 ef
 
@@ -99,6 +106,15 @@ legend("bottomright", legend=c("Eichelberg-1", "Eichelberg-2", "Duemmel"), col=m
 ### Categorical variables
 ordiplot(ordi, choices=c(1,2), type = "n")
 points(ordi, choices=c(1,2), display="sites", cex=1.5, pch=mysyms[sites$vegclass], col=mycols[sites$vegclass])
-ordiellipse(ordi, choices=c(1,2), sites$year, label = TRUE, cex=1.3)
-#ordispider(ordi, sites$year, label = TRUE, cex=1.3)
+#ordiellipse(ordi, choices=c(1,2), sites$year, label = TRUE, cex=1.3)
+ordispider(ordi, sites$location, label = TRUE, cex=1.3)
 #ordihull(ordi, sites$year, label = TRUE, cex=1.3)
+
+### Numeric variables, isolines 
+ordiplot(ordi, choices=c(1,2), type = "n")
+points(ordi, choices=c(1,2), display="sites", cex=1.3, pch=mysyms[sites$vegclass], col=mycols[sites$vegclass])
+ordisurf(ordi, sites$northerness, add=T, labcex=1.5, col="black", nlevels=5)
+
+ordiplot(ordi, choices=c(1,2), type = "n")
+points(ordi, choices=c(1,2), display="sites", cex=1.3, pch=mysyms[sites$vegclass], col=mycols[sites$vegclass])
+ordisurf(ordi, sites$slope, add=T, labcex=1.5, col="black", nlevels=5)
