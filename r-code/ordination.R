@@ -53,7 +53,7 @@ dev.off()
 x11()
 par(col="red", cex=1, pch=16)
 scatterplot3d(scores(ordi, display="sites"))
-dev.off()
+graphics.off()
 
 ### Goodness NMDS ####
 
@@ -88,19 +88,19 @@ legend("bottomright", legend=c("Eichelberg-1", "Eichelberg-2", "Duemmel"), col=m
 
 ### Environmental fits ####
 ### Numeric variables, linear
-ef <- envfit(ordi ~ northerness +  slope, sites, na.rm=TRUE, choices=c(1,2))
+ef <- envfit(ordi ~ northerness +  slope + species_richness, sites, na.rm=TRUE, choices=c(1,2))
 ef
 
 ordiplot(ordi, choices=c(1,2), type = "n")
 points(ordi, choices=c(1,2), display="sites", cex=1.5, pch=mysyms[sites$vegclass], col=mycols[sites$vegclass])
-plot(ef, add=TRUE, label=c("Northerness", "Slope"), col="black")
+plot(ef, add=TRUE, label=c("Northerness", "Slope", "species_richness"), col="black")
 legend("bottomright", legend=c("Eichelberg-1", "Eichelberg-2", "Duemmel"), col=mycols, pch=mysyms, cex=1.5, bg="white")
 
 ef13 <- envfit(ordi~ northerness +  slope, sites, na.rm=TRUE, choices=c(1,3))
 ef13
 ordiplot(ordi, choices=c(1,3), type = "n")
 points(ordi, choices=c(1,3), display="sites", cex=1.5, pch=mysyms[sites$vegclass], col=mycols[sites$vegclass])
-plot(ef13, add=TRUE, label=c("Northerness", "Slope"), col="black")
+plot(ef13, add=TRUE, label=c("Northerness", "Slope", "species_richness"), col="black")
 legend("bottomright", legend=c("Eichelberg-1", "Eichelberg-2", "Duemmel"), col=mycols, pch=mysyms, cex=1.5, bg="white")
 
 ### Categorical variables
@@ -118,3 +118,8 @@ ordisurf(ordi, sites$northerness, add=T, labcex=1.5, col="black", nlevels=5)
 ordiplot(ordi, choices=c(1,2), type = "n")
 points(ordi, choices=c(1,2), display="sites", cex=1.3, pch=mysyms[sites$vegclass], col=mycols[sites$vegclass])
 ordisurf(ordi, sites$slope, add=T, labcex=1.5, col="black", nlevels=5)
+
+ordiplot(ordi, choices=c(1,2), type = "n")
+points(ordi, choices=c(1,2), display="sites", cex=(1+sites$species_richness/max(sites$species_richness))^2, pch=mysyms[sites$vegclass], col=mycols[sites$vegclass])
+ordisurf(ordi, sites$species_richness, add=T, labcex=1.5, col="black", nlevels=5)
+
