@@ -1,9 +1,11 @@
 library(rgdal)
 library(RgoogleMaps)
-sites <- read.table("data/header_2017.csv", header=T, row.names = 1, sep=";", dec=",")
+
+### Read site data ####
+sites <- read.table("data/header_2015-2016-2017_vegclasses.txt")
 
 ### Map (mit Internetanschluss) ####
-xy <- as.matrix (sites[,c("easting", "northing")]) ## xy-Koordinaten
+xy <- as.matrix (sites[,c("longitude", "latitude")]) ## xy-Koordinaten
 geotagged <- complete.cases(xy)
 lonlat <- xy[geotagged,] ## NAs beseitigen
 rownames(lonlat) <- sites[geotagged,"id"]
@@ -28,3 +30,8 @@ dev.off()
 ### (Duemmel is too far away to plot it into the same map). Points for sites should indicate the 
 ### vegetation class they belong to (by col and pch). Upload the code and a png/pdf file of the 
 ### plotting result.
+mycols <- c("red", "green", "blue")
+mysyms <- c(15, 16, 17)
+mcenter <- apply(na.omit(sites[sites$location=="E", c("latitude", "longitude")]), 2, function(x) median(x))
+mymap_e <- GetMap(center = mcenter, maptype="terrain", zoom=14)
+PlotOnStaticMap(mymap_e, lat=lonlat[,"lat"], lon=lonlat[,"lon"], pch=mysyms[sites$vegclass], col=mycols[sites$vegclass], cex=1.5) 
