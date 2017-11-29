@@ -11,7 +11,7 @@ veg <- read.table("data/veg_2015-2016-2017.txt", sep=" ", dec=".", row.names = 1
 ### Read site data ####
 sites <- read.table("data/header_2015-2016-2017_vegclasses.txt")
 
-### Check consistance of veg and sites!!! ####
+### Check consistancy of veg and sites!!! ####
 nrow(veg) == nrow(sites)
 m <- match(rownames(sites), rownames(veg))
 sites <- sites[m,]
