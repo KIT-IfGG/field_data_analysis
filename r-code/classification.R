@@ -2,14 +2,16 @@ library(vegan)
 library(isopam)
 
 ### Read vegetation data (T) ###
-veg <- read.table("data/vegetation_2017.csv", sep=",", dec=".", row.names = 1, header=TRUE)
+#veg <- read.table("data/vegetation_2017.csv", sep=",", dec=".", row.names = 1, header=TRUE)
+veg <- read.table("data/vegetation_2018.csv", sep=",", dec=".", row.names = 1, header=TRUE)
 summary(veg)
 
 veg <- t(veg) ### Transpose. For this analysis species must be in cols and sites in rows (for isopam, later NMDs)
+veg <- veg[rowSums(veg)>0,]
 
 ### Data transformation (T) ####
-veg_trans <- decostand(veg, "max") ### transform
-
+#veg_trans <- decostand(veg, "max") ### transform
+veg_trans <- veg
 ### Similarity between relevées ###
 ### Calculate Sörensen index
 A <- sum(veg_trans[1,])
@@ -51,6 +53,6 @@ cor(vegclass, vegclass1, method="spearman")
 table(vegclass, vegclass1)
 
 ### TASK: Vegetation classification for the full dataset ####
-### Read the data, transformation, apply one of the teo classification methods (hclust, isopam),
+### Read the data, transformation, apply one of the tho classification methods (hclust, isopam),
 ### decide on number of classes, write an interpretation - why did you choose exactly k classes?
-### Delivery via Ilias, R-Code.
+### Delivery via Ilias, COMMENTED R-Code.
