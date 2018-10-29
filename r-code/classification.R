@@ -10,8 +10,8 @@ veg <- t(veg) ### Transpose. For this analysis species must be in cols and sites
 veg <- veg[rowSums(veg)>0,]
 
 ### Data transformation (T) ####
-#veg_trans <- decostand(veg, "max") ### transform
-veg_trans <- veg
+veg_trans <- decostand(veg, "max") ### transform
+#veg_trans <- veg
 ### Similarity between relevées ###
 ### Calculate Sörensen index
 A <- sum(veg_trans[1,])
@@ -32,8 +32,8 @@ vegclust <- hclust(distmat, method="complete")
 x11()
 plot(vegclust, cex=1.3, main="Classification") 
 
-k <-2
-plot(vegclust, main="Classification", cex=1.4,  labels=envdata$location) 
+k <- 2
+plot(vegclust, main="Classification", cex=1.4) 
 rect.hclust(vegclust, k=k, border=c("lightblue","orange", "darkred","darkgreen","red"))   
 
 vegclass1 <- cutree(vegclust, k=k)
@@ -52,6 +52,11 @@ rbind(vegclass, vegclass1)
 cor(vegclass, vegclass1, method="spearman")
 table(vegclass, vegclass1)
 
+### Add site infos ####
+sites <- read.table("data/header_2015-2018.csv", sep=" ", header=TRUE)
+
+m <- match(rownames(veg_trans), sites$X)
+sites[m,]
 ### TASK: Vegetation classification for the full dataset ####
 ### Read the data, transformation, apply one of the tho classification methods (hclust, isopam),
 ### decide on number of classes, write an interpretation - why did you choose exactly k classes?

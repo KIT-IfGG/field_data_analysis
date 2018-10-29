@@ -1,96 +1,79 @@
 $tab
-                              1     2     3
-Convallaria_majalis         43* 94***    38
-Acer_campestre               33 88***   6**
-Quercus_spec                43* 88***    44
-Sorbus_torminalis          3*** 76***     0
-Crataegus_laevigata         14* 71***    0*
-Carex_flacca                14* 65***     6
-Ligustrum_vulgare           16* 65***     6
-Brachypodium_sylvaticum     16* 59***    12
-Lathyrus_niger              2** 47***     0
-Helleborus_foetidus          5* 41***     0
-Hieracium_murorum            3* 41***     0
-Fragaria_vesca             0*** 35***     6
-Rosa_spec                   0** 35***     0
-Dryopteris_carthusiana       14    0* 50***
-Galium_aparine               5*     0 44***
-Urtica_dioica               2**     6 44***
-Fagus_sylvatica           100**   100 62***
-Acer_pseudoplatanus          81    71    81
-Hedera_helix                 81    94   56*
-Fraxinus_excelsior           59    71    75
-Anemone_nemorosa             48    59    56
-Galium_odoratum              57    71 12***
-Carpinus_betulus             40    35    44
-Rubus_spec                   28    35   56*
-Corylus_avellana             28    29   56*
-Milium_effusum               33    18    50
-Prunus_avium                 29   59*    12
-Carex_sylvatica             22*    29  62**
-Lamium_galeobdolon           36    6*    38
-Dryopteris_filix.mas         29     6    19
-Luzula_luzuloides            22    18    31
-Acer_platanoides             17   41*     6
-Juglans_regia                19    24     0
-Sambucus_nigra               14    12    25
-Circaea_lutetiana            12    18    19
-Viola_reichenbachiana        16    24     0
-Geum_urbanum                 12     6    25
-Lathyrus_vernus              10  35**     0
-Ajuga_reptans                 9  35**     0
-Cornus_sanguinea              9    24    12
-Ficaria_verna                10    18    12
-Ulmus_glabra                 16     6     6
-Melica_uniflora              10    18     6
-Allium_ursinum               10     0    19
-Arum_maculatum               12    12     0
-Mycelis_muralis               5    24    12
-Pinus_sylvestris              7     6   25*
-Abies_alba                  14*     0     0
-Prunus_padus                  5     0  31**
-Clematis_vitalba              5   24*     0
-Glechoma_hederacea            7     0    19
-Alliaria_petiolata            9     0     6
-Festuca_altissima             7    12     0
-Geranium_robertianum          3     0  25**
-Impatiens_parviflora.1        9     0     6
-Prunus_spinosa                3    12    12
-Ulmus_minor                   9     6     0
-Veronica_montana              9     0     6
-Poa_nemoralis                 5    12     0
-Primula_elatior               2     0  25**
-Quercus_robur                 9     0     0
-Stellaria_nemorum             3     0   19*
-Teucrium_scorodonia         0**  24**     6
-Vicia_sepium                0**  24**     6
-Vincetoxicum_hirundinaria     2  24**     0
-Alnus_glutinosa              0*     0 25***
-Athyrium_filix.femina        0*     6   19*
-Carex_digitata                5     6     0
-Crataegus_monogyna            3    12     0
-Dryopteris_dilatata           5     0     6
-Galium_sylvatikum            0* 24***     0
-Mercurialis_perennis          5     6     0
-Oxalis_acetosella             3     0    12
-Sanicula_europaea            0* 24***     0
-Silene_dioica                 3     0    12
+                              1     2
+Fraxinus_excelsior_hl      0*** 86***
+Fagus_sylvatica_jl          8**  86**
+Fagus_sylvatica_hl          17*   71*
+Fraxinus_excelsior_jl       0**  71**
+Ligustrum_vulgare_s         0**  57**
+Viola_reichenbachiana_hl     8*   57*
+Quercus_robur_jl            0**  57**
+Corylus_avellana_hl          0*   43*
+Hedera_helix_hl              92   100
+Fagus_sylvatica_t           100    71
+Fagus_sylvatica_s            75    71
+Galium_odoratum_hl           67    86
+Acer_pseudoplatanus_t        50    43
+Convallaria_majalis_hl       50    43
+Hedera_helix_t               25    71
+Lamium_galeobdolon_hl        25    71
+Quercus_sp._t                25    57
+Juglans_regia_s              42    29
+Fraxinus_excelsior_t         33    29
+Brachypodium_sylvaticum_hl   25    43
+Acer_campestre_t             25    29
+Acer_pseudoplatanus_s        25    29
+Fraxinus_excelsior_s         17    43
+Dryopteris_filix-mas_hl      33    14
+Carpinus_betulus_t           17    29
+Acer_campestre_s             17    29
+Carpinus_betulus_s            8    43
+Corylus_avellana_s            8    43
+Circaea_lutetiana_hl         17    29
+Juglans_regia_hl             17    29
+Quercus_robur_hl              8    43
+Acer_pseudoplatanus_jl        8    43
+Prunus_avium_t               17    14
+Hedera_helix_s               17    14
+Prunus_avium_s                8    29
+Carex_flacca_hl              17    14
+Carex_sylvatica_hl           17    14
+Carpinus_betulus_hl           8    29
+Dactylis_sp._hl              17    14
+Geum_urbanum_hl               8    29
+Helleborus_foetidus_hl        8    29
+Mercurialis_perennis_hl      17    14
+Mycelis_muralis_hl           17    14
+Prunus_avium_jl               8    29
+Ulmus_glabra_t                8    14
+Acer_pseudoplatanus_hl        8    14
+Clematis_vitalba_hl           0    29
+Dactylis_polygama_hl         17     0
+Festuca_gigantea_hl           8    14
+Glechoma_hederacea_hl         0    29
+Impatiens_parviflora_hl       8    14
+Lathyrus_niger_hl             8    14
+Lathyrus_vernus_hl            8    14
+Ligustrum_vulgare_hl          8    14
+Melica_nutans_hl              0    29
+Prunus_avium_hl               8    14
+Rubus_fruticosus_agg._hl      8    14
+Teucrium_scorodonia_hl        8    14
+Acer_campestre_jl             0    29
+Acer_platanoides_jl           8    14
+Corylus_avellana_jl           8    14
 
 $n
-   1  2  3
-n 58 17 16
+   1 2
+n 12 7
 
 $thresholds
 phi.min   p.max 
-   0.43    0.05 
+   0.47    0.05 
 
 $typical
 Typically found in 1: 
 Nothing particularly typical
 
 Typically found in 2: 
-Convallaria_majalis, Acer_campestre, Quercus_spec, Sorbus_torminalis, Crataegus_laevigata, Carex_flacca, Ligustrum_vulgare, Brachypodium_sylvaticum, Lathyrus_niger, Helleborus_foetidus, Hieracium_murorum, Fragaria_vesca, Rosa_spec
-
-Typically found in 3: 
-Dryopteris_carthusiana, Galium_aparine, Urtica_dioica
+Fraxinus_excelsior_hl, Fagus_sylvatica_jl, Fagus_sylvatica_hl, Fraxinus_excelsior_jl, Ligustrum_vulgare_s, Viola_reichenbachiana_hl, Quercus_robur_jl, Corylus_avellana_hl
 
