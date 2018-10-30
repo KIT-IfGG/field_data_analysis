@@ -12,11 +12,10 @@ mycolors <- c("blue", "red", "green", "black")
 plot(latitude ~ longitude, data = sites, col = mycolors[sites$color], pch=16)
 
 ### Task: How many vegetation plots per year?
-### Hing: table()
+### Hint: table()
 
 ### Plot with Shape file
 shp <- getData("GADM", country='DE', level=3, path = "../")
-shp[shp@data$NAME_2 %in% c(Baden)]
 
 sregion <- shp[shp@data$NAME_1 %in% c("Rheinland-Pfalz", "Baden-Württemberg"),]
 

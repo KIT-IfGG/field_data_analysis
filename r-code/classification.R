@@ -7,17 +7,18 @@ veg <- read.table("data/vegetation_2018.csv", sep=",", dec=".", row.names = 1, h
 summary(veg)
 
 veg <- t(veg) ### Transpose. For this analysis species must be in cols and sites in rows (for isopam, later NMDs)
-veg <- veg[rowSums(veg)>0,]
+veg <- veg[rowSums(veg) > 0,]
 
 ### Data transformation (T) ####
 veg_trans <- decostand(veg, "max") ### transform
 #veg_trans <- veg
+
 ### Similarity between relevées ###
 ### Calculate Sörensen index
 A <- sum(veg_trans[1,])
 B <- sum(veg_trans[2,])
 C <- sum(colSums(veg_trans[1:2,]) == 2)
-SI <- (2*C)/(A+B)   ### Sörensen index
+SI <- (2*C)/(A+B)   
 SI
 1 - SI ### Dissimilarity = "Distance"
 
@@ -32,8 +33,8 @@ vegclust <- hclust(distmat, method="complete")
 x11()
 plot(vegclust, cex=1.3, main="Classification") 
 
-k <- 2
-plot(vegclust, main="Classification", cex=1.4) 
+k <-2
+plot(vegclust, main="Classification", cex=1.4,  labels=envdata$location) 
 rect.hclust(vegclust, k=k, border=c("lightblue","orange", "darkred","darkgreen","red"))   
 
 vegclass1 <- cutree(vegclust, k=k)
@@ -52,12 +53,16 @@ rbind(vegclass, vegclass1)
 cor(vegclass, vegclass1, method="spearman")
 table(vegclass, vegclass1)
 
-### Add site infos ####
+### Add grousp to header ####
 sites <- read.table("data/header_2015-2018.csv", sep=" ", header=TRUE)
 
-m <- match(rownames(veg_trans), sites$X)
-sites[m,]
+sites <- sites[sites$year == 2018,]
+m <- match(sites$X, names(vegclass))
+sites$vegclass <- vegclass[m]
+
+### TASK: Plot map (map_simple.R) with vegetation types as colors.
+
 ### TASK: Vegetation classification for the full dataset ####
 ### Read the data, transformation, apply one of the tho classification methods (hclust, isopam),
-### decide on number of classes, write an interpretation - why did you choose exactly k classes?
+### Decide on number of classes, write an interpretation - why did you choose exactly k classes?
 ### Delivery via Ilias, COMMENTED R-Code.
