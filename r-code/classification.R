@@ -62,7 +62,7 @@ sites$vegclass <- vegclass[m]
 
 ### TASK: Plot map (map_simple.R) with vegetation types as colors.
 
-### TASK: Vegetation classification for the full dataset ####
+### TASK: Vegetation analysis for the full dataset ####
 ### Read the data, transformation, apply one of the tho classification methods (hclust, isopam),
 ### Decide on number of classes, write an interpretation - why did you choose exactly k classes?
 ### Delivery via Ilias, COMMENTED R-Code.

@@ -35,11 +35,7 @@ text(labpt, ka@data$NAME_2, cex=0.7)
 ### Hints: legend(), pdf(), dev.off()
 
 pdf("figures/study_region.pdf", height = 7)
-<<<<<<< HEAD
 plot(dem_ka, col=terrain.colors(10, alpha=0.7), xlab="Longitude", ylab="Latitude")
-=======
-plot(dem_ka, col=terrain.colors(10, alpha=0.7))
->>>>>>> a71d45fa6629302885f0de5c333776d5813e6f3f
 points(latitude ~ longitude, data = sites, col = mycolors[sites$color], pch=16, cex=2)
 plot(ka, add=TRUE)
 text(labpt, ka@data$NAME_2, cex=0.7)
