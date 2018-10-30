@@ -19,14 +19,17 @@ shp <- getData("GADM", country='DE', level=3, path = "../")
 
 sregion <- shp[shp@data$NAME_1 %in% c("Rheinland-Pfalz", "Baden-Württemberg"),]
 
-ka <- shp[sregion@data$NAME_2 %in% c("Karlsruhe"),]   #, "Germersheim", "Südwestpfalz", "Südliche Weinstraße"),]
-
+ka <- sregion[sregion@data$NAME_2 %in% c("Karlsruhe", "Südliche Weinstraße"),]   #, "Germersheim", "Südwestpfalz", "Südliche Weinstraße"),]
+x11()
 plot(latitude ~ longitude, data = sites, col = mycolors[sites$color], pch=16, asp=1)
 plot(ka, add=TRUE)
 
 ### TASK: Add a legend (year, colors) and write the map figure into a pdf file into a new folder "figures".
 ### Hints: legend(), pdf(), dev.off()
 
-
+pdf("results/test.pdf")
+plot(latitude ~ longitude, data = sites, col = mycolors[sites$color], pch=16, asp=1)
+legend("topright", legend = unique(sites$year), col = mycolors, pch = 16)
+dev.off()
 
 
