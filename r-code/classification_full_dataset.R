@@ -1,26 +1,39 @@
 library(vegan)
 library(isopam)
 
-mycols <- c("red", "green", "blue")
+mycols <- c("red", "green", "blue", "black")
 
 ### Read vegetation data ###
-veg <- read.table("data/veg_2015-2016-2017.txt", sep=" ", dec=".", row.names = 1, header=TRUE)
+veg <- read.table("data/veg_2015-2018_clean.txt", sep=" ", dec=".", row.names = 1, header=TRUE)
 summary(veg)
 rownames(veg)
+
+sites <- read.table("data/header_2015-2018_clean.csv", sep=" ", header=TRUE)
+summary(sites)
+nrow(sites)
+
+nrow(veg) == nrow(sites)
+table(sites$X %in% rownames(veg))
+table(rownames(veg) %in% sites$X)
 
 ### Exclude rare species ####
 table(colSums(decostand(veg, "pa")) < 3)
 veg <- veg[,colSums(decostand(veg, "pa")) > 3]
 
+veg <- veg[rowSums(veg) > 0 ,]
 veg_trans <- decostand(veg, "max") ### transform
 
 #####################################################
 ### Classification ####
 #####################################################
-iso <- isopam(veg_trans, k=3, ind=c("Fagus_sylvatica", "Quercus_spec", "Quercus_robur", "Abies_alba", "Acer_campestre", "Acer_platanoides"), sieve = FALSE)
+iso <- isopam(veg_trans, c.fix = 3, ind=c("Fagus_sylvatica", "Quercus_spec", "Quercus_robur", "Abies_alba", "Galium_odoratum", "Fraxinus_excelsior"))
 isotab(iso)   ### Diagnostic species - decide if this makes sense!
 str(iso$flat)
 vegclass <- iso$flat
+
+### Optional: Set own diagnostic species and/or number of classes
+### iso <- isopam(veg_trans, c.fix = 3, ind=c("Fagus_sylvatica", "Quercus_spec", "Quercus_robur", "Abies_alba", "Acer_campestre", "Acer_platanoides"), sieve = FALSE)
+
 
 ### Write the results into text file
 sink("results/isotab.txt")
@@ -30,7 +43,7 @@ sink()
 #####################################################
 ### Analyse site information by class ####
 #####################################################
-sites <- read.table("data/header_2015-2016-2017.txt")
+sites <- read.table("data/header_2015-2018_clean.csv", sep=" ", header=TRUE)
 summary(sites)
 nrow(sites)
 
@@ -39,19 +52,17 @@ sites$aspect_radians <- sites$aspect * pi /180
 sites$northerness <- cos(sites$aspect_radians)
 
 ### Add vegetation classification results to the site table
-m <- match(rownames(sites), names(vegclass))
+m <- match(sites$X, names(vegclass))
 sites$vegclass <- vegclass[m]
 
 ### Save vegetation classes for further analysis
-write.table(sites, "data/header_2015-2016-2017_vegclasses.txt")   
+write.table(sites, "data/header_2015-2018_vegclasses.txt")   
 
-### Influence of year, location (factors)
-x11(width=9)
-par(mfrow=c(1,2), cex=2, mar=c(0,0,0,0), oma=c(1,2,3,1))
+### Influence of year,location (factors)
+x11(width = 9)
+par(mfrow = c(1,1), cex = 2, mar = c(0,0,0,0), oma = c(1,2,3,1))
 plot(table(sites$year, sites$vegclass), col=mycols, main="")
 mtext("Year", 3, 1, cex=2)
-plot(table(sites$location, sites$vegclass), col=mycols, main="")
-mtext("Location", 3, 1, cex=2)
 
 ### Influence of physical site factors (numeric)
 x11(width=9, height=5)
@@ -70,3 +81,14 @@ graphics.off()
 kruskal.test(slope ~ vegclass, sites)
 kruskal.test(northerness ~ vegclass, sites)
 
+### Map ####
+sites$color <- sites$vegclass
+mycolors <- c("blue", "red", "green", "black")
+plot(latitude ~ longitude, data = sites, col = mycolors[sites$color], pch=16)
+
+### TASK: Calculate species richness for each vegetation plot and add to 
+### the sites table.Caution, there is an NA in the data you have to deal with!
+sr <- rowSums(decostand(veg, "pa"))
+sites$species_richness <- sr[match(sites$X, names(sr))]
+
+boxplot(species_richness ~ vegclass, sites, col=mycols, xlab="Veg. classes", ylab="species_richness")
