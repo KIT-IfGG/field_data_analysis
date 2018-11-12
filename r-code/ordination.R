@@ -1,5 +1,6 @@
 library(vegan)
 library(scatterplot3d)
+library(isopam)
 
 ### Some global variables
 mycols <- c("red", "green", "blue", "black")
@@ -70,7 +71,7 @@ dev.off()
 
 x11()
 par(pch = 16, cex = 1.3)
-scatterplot3d(scores(ordi, display="sites"), color = mycolors[sites$vegclass])
+scatterplot3d(scores(ordi, display="sites"), color = mycols[sites$vegclass])
 graphics.off()
 
 ### Goodness NMDS ####
@@ -107,7 +108,7 @@ legend("bottomright", legend=c("A", "B"), col=mycols, pch=mysyms, cex=1.5, bg="w
 sites$species_richness <- rowSums(decostand(veg, "pa"))
 
 ordiplot(ordi, choices=c(1,2), type = "n")
-points(ordi, choices=c(1,2), display="sites", cex=(1+sites$species_richness/max(sites$species_richness))^2, pch=mysyms[sites$vegclass], col=mycols[sites$vegclass])
+points(ordi, choices=c(1,2), display="sites", cex=(0.5+sites$species_richness/max(sites$species_richness))^2, pch=mysyms[sites$vegclass], col=mycols[sites$vegclass])
 
 ### Tree cover
 ordiplot(ordi, choices=c(1,2), type = "n")
@@ -127,7 +128,12 @@ legend("bottomright", legend=c("A", "B"), col=mycols, pch=mysyms, cex=1.5, bg="w
 ordiplot(ordi, choices=c(1,2), type = "n")
 points(ordi, choices=c(1,2), display="sites", cex=1.5, pch=mysyms[sites$vegclass], col=mycols[sites$vegclass])
 #ordiellipse(ordi, choices=c(1,2), sites$year, label = TRUE, cex=1.3)
-ordispider(ordi, sites$location, label = TRUE, cex=1.3)
+ordispider(ordi, sites$year, label = TRUE, cex=1.3)
+
+x11()
+ordiplot(ordi, choices=c(1,2), type = "n")
+points(ordi, choices=c(1,2), display="sites", cex=1.5, pch=16, col=1+as.numeric(sites$northerness>0))
+ordispider(ordi, sites$northerness>0, label = TRUE, cex=1.3, col=c(1,2))
 #ordihull(ordi, sites$year, label = TRUE, cex=1.3)
 
 ### Numeric variables, isolines ####
@@ -139,5 +145,9 @@ ordiplot(ordi, choices=c(1,2), type = "n")
 points(ordi, choices=c(1,2), display="sites", cex=1.3, pch=mysyms[sites$vegclass], col=mycols[sites$vegclass])
 ordisurf(ordi, sites$slope, add=T, labcex=1.5, col="black", nlevels=5)
 
-### TASK: Add missing location information (E: Eichelberg, D: Dümmel, ...)
-### TASK: Add Ellenberg values. Create document with one column species name (SAME as in vegetation table) and columns for the Ellenberg values.
+### TASK: Add Ellenberg values. Fill the document with one column for species name (SAME as in vegetation table) and columns for the Ellenberg values. See web-link to shared doc in Ilias!
+
+### TASK: Create boxplots for Ellenberg values for isopam vegetation classes (one figure per pdf page or a multi-panel plot). Save them in a pdf file.
+
+### TASK: Display Ellenberg values in the ordination plot and interprete the results.
+
