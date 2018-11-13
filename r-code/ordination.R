@@ -19,8 +19,9 @@ table(rownames(veg) %in% sites$X)
 
 #veg <- veg[rownames(veg) %in% sites$X, ]
 #sites <- sites[sites$X %in% rownames(veg), ]
-m <- match(sites$X, rownames(veg))
+m <- match(rownames(veg), sites$X)
 sites <- sites[m,]
+cbind.data.frame(sites$X, rownames(veg)) ### Check again!
 
 ### Ordination ####
 ### Exclude rare species 
@@ -151,3 +152,4 @@ ordisurf(ordi, sites$slope, add=T, labcex=1.5, col="black", nlevels=5)
 
 ### TASK: Display Ellenberg values in the ordination plot and interprete the results.
 
+### Todo: Text statt punkte für sites!!
