@@ -18,7 +18,7 @@ for (i in 1:nrow(sites)) {
   si <- si[,si > 0]
 #  m <- match(colnames(veg), names(si))
   elli[elli$species %in% colnames(si),]
-  sites_ellis[[i]] <- apply(elli[elli$species %in% colnames(si), 2:ncol(elli)], 2, function(x) median(x[m], na.rm=T))
+  sites_ellis[[i]] <- apply(elli[elli$species %in% colnames(si), 2:ncol(elli)], 2, function(x) mean(x[m], na.rm=T))
 }
 
 sites <- cbind.data.frame(sites, do.call(rbind, sites_ellis))
