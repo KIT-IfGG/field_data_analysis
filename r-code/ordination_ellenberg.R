@@ -47,7 +47,8 @@ pvalues <- unlist(lapply(ktest, function(x) x$p.value))
 pvalues <- round(pvalues[order(as.numeric(pvalues))], 3)
 alpha = 0.01
 
-x11(width=9)
+x11(width = 9)
+pdf("figures/boxplots.pdf", width = 9)
 par(mfrow=c(2,3), mar = c(5,5,1,1), cex=1.2)
 for(i in 1:length(pvalues)) {
   if(pvalues[i] < alpha) {
@@ -59,8 +60,9 @@ for(i in 1:length(pvalues)) {
   boxplot(ell ~ vegclass, sites, col=local_colors, ylab = names(pvalues)[i], xlab = "Vegetation classes", names = unique(sites$vegclass))
   mtext(paste0("p-value = ", pvalues[i], " "), 1, -1.2, adj = 1)
 }
+dev.off()
 
-### Calculate ordination (NDMS) ####
+### Calculate ordination (NMDS) ####
 ordi <- metaMDS(veg_trans, distance = "bray", k = 3, trace = TRUE)   ### NMDS
 ordi$stress
 
