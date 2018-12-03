@@ -1,5 +1,5 @@
 library(vegan)
-library(scatterplot3d)
+#library(scatterplot3d)
 library(isopam)
 
 ### Some global variables
@@ -47,9 +47,9 @@ pvalues <- unlist(lapply(ktest, function(x) x$p.value))
 pvalues <- round(pvalues[order(as.numeric(pvalues))], 3)
 alpha = 0.01
 
-x11(width = 9)
+#x11(width = 9)
 pdf("figures/boxplots.pdf", width = 9)
-par(mfrow=c(2,3), mar = c(5,5,1,1), cex=1.2)
+par(mfrow=c(2,3), mar = c(5,5,1,1), cex=1.2) ### oma = c(1 ,1, 1, 1)
 for(i in 1:length(pvalues)) {
   if(pvalues[i] < alpha) {
     local_colors <- mycols

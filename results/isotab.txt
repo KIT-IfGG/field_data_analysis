@@ -1,79 +1,103 @@
 $tab
-                              1     2
-Fraxinus_excelsior_hl      0*** 86***
-Fagus_sylvatica_jl          8**  86**
-Fagus_sylvatica_hl          17*   71*
-Fraxinus_excelsior_jl       0**  71**
-Ligustrum_vulgare_s         0**  57**
-Viola_reichenbachiana_hl     8*   57*
-Quercus_robur_jl            0**  57**
-Corylus_avellana_hl          0*   43*
-Hedera_helix_hl              92   100
-Fagus_sylvatica_t           100    71
-Fagus_sylvatica_s            75    71
-Galium_odoratum_hl           67    86
-Acer_pseudoplatanus_t        50    43
-Convallaria_majalis_hl       50    43
-Hedera_helix_t               25    71
-Lamium_galeobdolon_hl        25    71
-Quercus_sp._t                25    57
-Juglans_regia_s              42    29
-Fraxinus_excelsior_t         33    29
-Brachypodium_sylvaticum_hl   25    43
-Acer_campestre_t             25    29
-Acer_pseudoplatanus_s        25    29
-Fraxinus_excelsior_s         17    43
-Dryopteris_filix-mas_hl      33    14
-Carpinus_betulus_t           17    29
-Acer_campestre_s             17    29
-Carpinus_betulus_s            8    43
-Corylus_avellana_s            8    43
-Circaea_lutetiana_hl         17    29
-Juglans_regia_hl             17    29
-Quercus_robur_hl              8    43
-Acer_pseudoplatanus_jl        8    43
-Prunus_avium_t               17    14
-Hedera_helix_s               17    14
-Prunus_avium_s                8    29
-Carex_flacca_hl              17    14
-Carex_sylvatica_hl           17    14
-Carpinus_betulus_hl           8    29
-Dactylis_sp._hl              17    14
-Geum_urbanum_hl               8    29
-Helleborus_foetidus_hl        8    29
-Mercurialis_perennis_hl      17    14
-Mycelis_muralis_hl           17    14
-Prunus_avium_jl               8    29
-Ulmus_glabra_t                8    14
-Acer_pseudoplatanus_hl        8    14
-Clematis_vitalba_hl           0    29
-Dactylis_polygama_hl         17     0
-Festuca_gigantea_hl           8    14
-Glechoma_hederacea_hl         0    29
-Impatiens_parviflora_hl       8    14
-Lathyrus_niger_hl             8    14
-Lathyrus_vernus_hl            8    14
-Ligustrum_vulgare_hl          8    14
-Melica_nutans_hl              0    29
-Prunus_avium_hl               8    14
-Rubus_fruticosus_agg._hl      8    14
-Teucrium_scorodonia_hl        8    14
-Acer_campestre_jl             0    29
-Acer_platanoides_jl           8    14
-Corylus_avellana_jl           8    14
+                              1     2     3
+Galium_odoratum           10*** 78***    44
+Convallaria_majalis       21*** 73***   28*
+Carex_sylvatica            3***    24 64***
+Fagus_sylvatica             100    98 76***
+Hedera_helix                69* 96***   68*
+Acer_pseudoplatanus          76   65*   92*
+Fraxinus_excelsior        34***    73    80
+Acer_campestre              24* 62***  16**
+Anemone_nemorosa           21**    44   60*
+Carpinus_betulus             38    40    36
+Quercus_spec                 28    45    32
+Corylus_avellana           10**    36   52*
+Prunus_avium               7***  45**    28
+Lamium_galeobdolon         10**    33   48*
+Milium_effusum               24   18*  52**
+Rubus_spec                  10*    25  48**
+Luzula_luzuloides           41*    18    20
+Ligustrum_vulgare            10  36**     8
+Carex_flacca                 10 35***    4*
+Juglans_regia                17    25    16
+Acer_platanoides             10   27*     8
+Dryopteris_filix.mas         17    15    28
+Brachypodium_sylvaticum       7   25*    12
+Crataegus_laevigata          14    24     4
+Dryopteris_carthusiana       28  0*** 40***
+Sambucus_nigra                7    15   32*
+Circaea_lutetiana            3*    16    28
+Viola_reichenbachiana        3*  27**     4
+Sorbus_torminalis             3 27***    0*
+Melica_uniflora               7    18     8
+Geum_urbanum                 0*    13    24
+Rubus_fruticosus              7    16     8
+Ajuga_reptans                 7    16     4
+Lathyrus_vernus               7    16     4
+Quercus_robur                 3    16     8
+Ulmus_glabra                 10    13     8
+Pinus_sylvestris              3    11    16
+Urtica_dioica                 3    4* 32***
+Cornus_sanguinea              7    11     8
+Galium_aparine                7     4  24**
+Helleborus_foetidus           3   16*     0
+Lathyrus_niger                3   16*     0
+Allium_ursinum                7     5    16
+Arum_maculatum                0    13     8
+Abies_alba                24***   0**     4
+Crataegus_monogyna            3    13     0
+Festuca_altissima             3    13     0
+Ficaria_verna                 0    11     8
+Glechoma_hederacea            0     9    12
+Mycelis_muralis               0    11     8
+Prunus_padus                  3     4   20*
+Prunus_spinosa                0    13     4
+Hieracium_murorum             3    11     0
+Clematis_vitalba              0   11*     0
+Dactylis_glomerata            0   11*     0
+Geranium_robertianum          3     2   16*
+Alliaria_petiolata            3     2    12
+Carex_montana                 3     5     4
+Impatiens_parviflora          0     2  16**
+Impatiens_parviflora.1        0     7     4
+Poa_nemoralis                 3     7     0
+Primula_elatior               3    0*  16**
+Stellaria_nemorum             0     4    12
+Teucrium_scorodonia           3     7     0
+Ulmus_minor                   3     5     4
+Veronica_montana              0     4    12
+Vincetoxicum_hirundinaria     0     9     0
+Alnus_glutinosa               0     0  16**
+Athyrium_filix.femina         0     2   12*
+Campanula_trachelium          0     7     0
+Carex_digitata                0     7     0
+Festuca_ovina                 0     7     0
+Fragaria_vesca                0     5     4
+Melampyrum_pratense           0     7     0
+Mercurialis_perennis          0     7     0
+Oxalis_acetosella             0     4     8
+Robinia_pseudoacacia          0     7     0
+Rosa_spec                     0     7     0
+Rubus_idaeus                  7     4     0
+Silene_dioica                 0     2   12*
+Vicia_sepium                  0     5     4
+Viola_hirta                   0     7     0
 
 $n
-   1 2
-n 12 7
+   1  2  3
+n 29 55 25
 
 $thresholds
 phi.min   p.max 
-   0.47    0.05 
+   0.43    0.05 
 
 $typical
 Typically found in 1: 
 Nothing particularly typical
 
 Typically found in 2: 
-Fraxinus_excelsior_hl, Fagus_sylvatica_jl, Fagus_sylvatica_hl, Fraxinus_excelsior_jl, Ligustrum_vulgare_s, Viola_reichenbachiana_hl, Quercus_robur_jl, Corylus_avellana_hl
+Galium_odoratum, Convallaria_majalis
+
+Typically found in 3: 
+Carex_sylvatica
 

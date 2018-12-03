@@ -36,6 +36,24 @@ veg_trans <- decostand(veg, "max")
 sites$northerness[is.na(sites$northerness)] <- mean(sites$northerness, na.rm=TRUE)
 sites$slope[is.na(sites$slope)] <- mean(sites$slope, na.rm=TRUE)
 
+### Speices occurences across the gradient ####
+spnames <- c("Acer_pseudoplatanus", "Fagus_sylvatica", "Sorbus_torminalis")
+myrainbow <- rainbow(length(spnames), alpha = 0.8, s = 1, v = 0.6)   ### Nicer colors!
+defpar <- par()   ### Get current plotting parameters
+ptcex <- 1.7
+
+x11(width = 10, height = 6)
+par(mar = c(4,4,1,11), xpd = FALSE, cex = 1.3)
+matplot(sites$northerness, veg[,spnames], pch=16, cex=ptcex, col = myrainbow, frame.plot = FALSE, ylab = "Species cover (%)", xlab = "Northerness", axes = FALSE)
+axis(1, pos = 0)
+axis(2, pos = -1)
+grid(col = "grey") ; abline(h = 100); abline(v = 1)
+par(xpd = TRUE)   ### Allow to plot into the margin
+legend(par("usr")[2], par("usr")[4] * 0.95, legend = spnames, pch = 16, col = myrainbow, pt.cex = ptcex)   ### Use user coordinates to plot legend into margin
+par(defpar) ### Set plotting parameters back to the "default"
+
+# box()  ### Try this to see how position of axes differs from the default.
+
 ### Calculate ordination (Canonical correspondence analysis) ####
 ordi0 <- cca(veg_trans)   ### CCA
 #ordi <- cca(veg_trans ~ T + L + F, sites)   ### CCA
@@ -57,6 +75,8 @@ legend("bottomright", legend = c("A", "B", "C", "D"), col = mycols, pch = mysyms
 ### Numeric variables, linear
 ef <- envfit(ordi ~ L + T + K + F + R + N + northerness + slope, sites, na.rm=TRUE, choices = c(1,2), permutations = 100)
 ef
+
+alpha <- 0.05
 
 x11()
 par(mfrow=c(1,1))
