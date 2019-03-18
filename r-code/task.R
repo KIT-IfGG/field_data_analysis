@@ -12,11 +12,11 @@
 ### not files changes by hand, use another computer and execute
 
 ### Start ####
-### Read and check the data ####
+### 1 Read and check the data ####
 
-### What to do with rare species? ####
+### What to do with rare species? 
 
-### Classification: apply isopam ####
+### 2 Classification: apply isopam ####
 ### Transformation
 ### Decide on number of classes, write an interpretation
 ### Why did you choose exactly k classes?
@@ -27,18 +27,18 @@
 ### Calculate a correponding Kruskal-Wallis rank sum
 ### test for each case. Why is a ANOVA not appropiate?
 
-### Plot a map with sites and vegetation types ####
+### 3 Plot a map with sites and vegetation types ####
 ### Alternativly you can plot another interesting
 ### variable using point size!
 
-### Calculate an ordination ####
+### 4 Calculate an ordination ####
 ### Transformation same as for classification?
 ### Use vegetation classes as point colors/shapes
 ### Calculate an environmental fit of Ellenberg values and 1 to 3 other
 ### seemingly relevant sites parameters.
 ### Plot the fit into the ordination and interprete significances.
 
-### Characterization of vegetation ####
+### 5 Characterization of vegetation ####
 ### Provide a description of each vegetation class using
 ### character species, stand forming "important" species, 
 ### Ellenberg values and site parameters such as northing.
